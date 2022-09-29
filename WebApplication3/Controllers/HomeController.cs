@@ -40,13 +40,13 @@ namespace WebApplication3.Controllers
         {
             unitOfWork.MenuRepository.Insert(menu);
             unitOfWork.Save();
-            return RedirectToAction("AddMenu");
+            return RedirectToAction("Menu", "Manager");
         }
         public IActionResult UpdateMenu(Menu menu)
         {
             unitOfWork.MenuRepository.Update(menu);
             unitOfWork.Save();
-            return RedirectToAction("AddMenu");
+            return RedirectToAction("Menu", "Manager");
         }
 
         public IActionResult AddFile()
@@ -70,14 +70,14 @@ namespace WebApplication3.Controllers
         {
             unitOfWork.FileRepository.Insert(fileContent);
             unitOfWork.Save();
-            return RedirectToAction("AddFile");
+            return RedirectToAction("File", "Manager");
         }
 
         public IActionResult UpdateFile(FileContent fileContent)
         {
             unitOfWork.FileRepository.Update(fileContent);
             unitOfWork.Save();
-            return RedirectToAction("AddFile");
+            return RedirectToAction("File", "Manager");
         }
 
         protected override void Dispose(bool disposing)

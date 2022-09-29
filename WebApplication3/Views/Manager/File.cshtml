@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Quản lý File thêm, xóa, sửa";
+}
+<div class="row">
+    <div class="col-12">
+        <h1>Quản lý file</h1>
+        <a href="/Home/AddFile">Thêm file mới</a>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tên file</th>
+                    <th scope="col">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.FileName</td>
+                        <td><a href="/Home/EditFile/@item.Id">Sửa file</a></td>
+                    </tr> 
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

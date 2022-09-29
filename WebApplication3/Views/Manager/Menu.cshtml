@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Quản lý Menu thêm, xóa, sửa";
+}
+<div class="row">
+    <div class="col-12">
+        <h1>Quản lý file</h1>
+        <a href="/Home/AddMenu">Thêm menu mới</a>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tên menu</th>
+                    <th scope="col">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.MenuName</td>
+                        <td><a href="/Home/EditMenu/@item.Id">Sửa menu</a></td>
+                    </tr> 
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
