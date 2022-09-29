@@ -3,7 +3,7 @@
 }
 <div class="row">
     <div class="col-12">
-        <h1>Quản lý file</h1>
+        <h1 class="text-center">Quản lý file</h1>
         <a href="/Home/AddFile">Thêm file mới</a>
 
         <table class="table table-striped">
@@ -20,7 +20,7 @@
                     <tr>
                         <th scope="row">@item.Id</th>
                         <td>@item.FileName</td>
-                        <td><a href="/Home/EditFile/@item.Id">Sửa file</a></td>
+                        <td><a href="/Home/EditFile/@item.Id">Sửa file</a> | <a href="/Home/DeleteFile/@item.Id">Xóa</a></td>
                     </tr> 
                 }
             </tbody>

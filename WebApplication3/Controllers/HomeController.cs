@@ -49,6 +49,13 @@ namespace WebApplication3.Controllers
             return RedirectToAction("Menu", "Manager");
         }
 
+        public IActionResult DeleteMenu(int Id)
+        {
+            unitOfWork.MenuRepository.Delete(Id);
+            unitOfWork.Save();
+            return RedirectToAction("Menu", "Manager");
+        }
+
         public IActionResult AddFile()
         {
             return View();
@@ -76,6 +83,13 @@ namespace WebApplication3.Controllers
         public IActionResult UpdateFile(FileContent fileContent)
         {
             unitOfWork.FileRepository.Update(fileContent);
+            unitOfWork.Save();
+            return RedirectToAction("File", "Manager");
+        }
+
+        public IActionResult DeleteFile(int Id)
+        {
+            unitOfWork.FileRepository.Delete(Id);
             unitOfWork.Save();
             return RedirectToAction("File", "Manager");
         }
