@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Html
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    ul li {
+        list-style-type: none;
+    }
+</style>
+<div class="row">
+    <div class="col-3 border">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="#" onclick="return theFunction(@item.Id);"> @item.MenuName</a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-9 border" id="content-html">
+        @(new HtmlString(@Model[0].Contents))
+    </div>
+</div>
+
+<script type="text/javascript">
+    function theFunction (id) {
+        var element = $("#content-html");
+        $.ajax({url: `${"/Home/DetailMenu/" + id}`, success: function(result){
+            element.html(result.contents);
+        }});
+        // return true or false, depending on whether you want to allow the `href` property to follow through or not
+    }
+</script>
