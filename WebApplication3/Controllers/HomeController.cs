@@ -27,12 +27,18 @@ namespace WebApplication3.Controllers
         public IActionResult EditMenu(int Id)
         {
             var menu = unitOfWork.MenuRepository.GetById(Id);
+            if (menu == null)
+                menu = new Menu();
+
             return View(menu);
         }
 
         public JsonResult DetailMenu(int Id)
         {
             var menu = unitOfWork.MenuRepository.GetById(Id);
+            if (menu == null)
+                menu = new Menu();
+
             return new JsonResult(menu);
         }
 
@@ -64,12 +70,16 @@ namespace WebApplication3.Controllers
         public IActionResult EditFile(int Id)
         {
             var menu = unitOfWork.FileRepository.GetById(Id);
+            if (menu == null)
+                menu = new FileContent();
             return View(menu);
         }
 
         public IActionResult DetailFile(int Id)
         {
             var menu = unitOfWork.FileRepository.GetById(Id);
+            if (menu == null)
+                menu = new FileContent();
             return View(menu);
         }
 
